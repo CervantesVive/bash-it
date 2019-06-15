@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
+# If not running interactively, don't do anything
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
 # Path to the bash it configuration
 export BASH_IT="{{BASH_IT}}"
 
-# Lock and Load a custom theme file
+# Lock and Load a custom theme file.
+# Leave empty to disable theming.
 # location /.bash_it/themes/
 export BASH_IT_THEME='bobby'
 
@@ -48,5 +55,8 @@ export SCM_CHECK=true
 # after enabling or disabling aliases, plugins, and completions.
 # export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 
+# Uncomment this to make Bash-it create alias reload.
+# export BASH_IT_RELOAD_LEGACY=1
+
 # Load Bash It
-source $BASH_IT/bash_it.sh
+source "$BASH_IT"/bash_it.sh
